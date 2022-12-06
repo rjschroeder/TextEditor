@@ -15,6 +15,10 @@ const initdb = async () =>
 // TODO: Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
   let textEditorDb = await openDB("jate", 1);
+  let tx = textEditorDb.transaction("jate", "readwrite");
+  let store = tx.objectStore("jate");
+  let request = store.add({/*toadd*/});
+  let result = await request;
 };
 
 // TODO: Add logic for a method that gets all the content from the database
