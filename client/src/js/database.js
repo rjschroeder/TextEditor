@@ -17,8 +17,9 @@ export const putDb = async (content) => {
   let textEditorDb = await openDB("jate", 1);
   let tx = textEditorDb.transaction("jate", "readwrite");
   let store = tx.objectStore("jate");
-  let request = store.add({/*toadd*/});
+  let request = store.add({text:content});
   let result = await request;
+  console.log("Data saved to db", result);
 };
 
 // TODO: Add logic for a method that gets all the content from the database
